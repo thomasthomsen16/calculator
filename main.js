@@ -4,32 +4,40 @@ let numData = [];
 let operatorData = [];
 
 
-function add() {
+function add(a,b) {
+    return a+b;
 }
 
-function subtract() {
-
+function subtract(a,b) {
+    return a-b;
 }
 
-function multiply() {
-
+function multiply(a,b) {
+    return a*b;
 }
 
-function divide() {
-
+function divide(a,b) {
+    if (b === 0) {
+        alert("Error. Can not divide by 0");  // Handle divide by zero case
+        return "ERROR";
+    } else {
+        return a / b;
+    }
 }
+
+        
 
 //To do: Set firstNum and secondNum to user input. firstNum can be all equal numbers in array (num%2=0) and secondNum can be all uneven numbers in array (num%2=1)
 
 // display numbers from user input and result from calculation
 function display() {
-    const displayCalc = document.querySelector(".result");
+    displayVal = document.querySelector(".result");
     
     // Get the input of a button pressed to display in the calculator
     const displayKey = document.querySelectorAll(".calculator button");
     displayKey.forEach(button =>{
         button.addEventListener("click", () => {
-            displayCalc.textContent = button.textContent;
+            displayVal.textContent = button.textContent;
             // Checks if button is number or operator and push it to corresponding array
             if (!isNaN(button.textContent)) {
                 // Convert button.textContent to number and add to numData array
