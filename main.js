@@ -35,15 +35,16 @@ function display() {
                 // Convert button.textContent to number and add to numData array
                 numData.push(button.textContent*1);
 
-                // Assign values to firstNum and secondNum based on index % 2
-                for (let i = 0; i < numData.length; i++) {
-                    if (i%2 === 0) {
-                        firstNum = numData[i]
-                        console.log(`firstNum assigned: ${firstNum}`);
-                    } else {
-                        secondNum=numData[i]
-                        console.log(`secondNum assigned: ${secondNum}`);
-                    }
+                // Get the index of the latest number added to numData
+                let currentIndex = numData.length - 1;
+
+                // Assign values to firstNum and secondNum based on index
+                if (currentIndex % 2 === 0) {
+                    firstNum = numData[currentIndex];
+                    console.log(`firstNum assigned: ${firstNum}`);
+                } else {
+                    secondNum = numData[currentIndex];
+                    console.log(`secondNum assigned: ${secondNum}`);
                 }
 
             } else {
