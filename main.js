@@ -32,8 +32,35 @@ function display() {
     const displayKey = document.querySelectorAll(".calculator button");
     displayKey.forEach(button =>{
         button.addEventListener("click", () => {
-             // Handle the "Clear" button separately
+            //  Handle the "Clear" button separately
             if(button.textContent === "Clear") {
+                
+            }
+            if(button.textContent != "Clear" && button.textContent != "=") {
+                displayVal.textContent = button.textContent;
+                // Checks if button is number or operator and push it to corresponding array
+                if (!isNaN(button.textContent)) {
+                    // Convert button.textContent to number and add to numData array
+                    numData.push(button.textContent*1);
+    
+                    // Get the index of the latest number added to numData
+                    let currentIndex = numData.length - 1;
+    
+                    // Assign values to firstNum and secondNum based on index
+                    if (currentIndex % 2 === 0) {
+                        firstNum = numData[currentIndex];
+                        console.log(`firstNum assigned: ${firstNum}`);
+                    } else {
+                        secondNum = numData[currentIndex];
+                        console.log(`secondNum assigned: ${secondNum}`);
+                    }
+    
+                } else {
+                    operatorData.push(button.textContent);
+                    operator = button.textContent;
+                    console.log(operator);
+                }
+            } else if (button.textContent === "Clear") {
                 // Clears all array and variables used in the calculator at btn press "Clear"
                 numData = [];
                 operatorData = [];
@@ -42,28 +69,8 @@ function display() {
                 operator = undefined;
                 displayVal.textContent = "0";  // Reset to "0" or an empty string
                 return; // Do nothing, as the clear button is already handled
-            }
-
-            displayVal.textContent = button.textContent;
-            // Checks if button is number or operator and push it to corresponding array
-            if (!isNaN(button.textContent)) {
-                // Convert button.textContent to number and add to numData array
-                numData.push(button.textContent*1);
-
-                // Get the index of the latest number added to numData
-                let currentIndex = numData.length - 1;
-
-                // Assign values to firstNum and secondNum based on index
-                if (currentIndex % 2 === 0) {
-                    firstNum = numData[currentIndex];
-                    console.log(`firstNum assigned: ${firstNum}`);
-                } else {
-                    secondNum = numData[currentIndex];
-                    console.log(`secondNum assigned: ${secondNum}`);
-                }
-
-            } else {
-                operatorData.push(button.textContent);
+            } else if (button.textContent === "=") {
+                displayVal.textContent = operate(firstNum,secondNum,operator);
             }
         })
     })
@@ -72,16 +79,15 @@ function display() {
 // Performs the calculation using the add(), subtract(), multiply() and divide()
 function operate(firstNum,secondNum,operator) {
 
-
     //Checks which operator the user has selected and calls the corresponding function
     if(operator === "+") {
-        add(firstNum,secondNum)
+        return add(firstNum,secondNum)
     } else if (operator === "-") {
-        subtract(firstNum,secondNum)
+        return subtract(firstNum,secondNum)
     } else if (operator === "*") {
-        multiply(firstNum,secondNum)
+        return multiply(firstNum,secondNum)
     } else if (operator === "/"){
-        divide(firstNum,secondNum)
+        return divide(firstNum,secondNum)
     }
 }
 display();
