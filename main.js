@@ -3,18 +3,6 @@ let firstNum, secondNum, operator, displayVal;
 let numData = [];
 let operatorData = [];
 
-// Clears all array and variables used in the calculator at btn press "Clear"
-const clear = document.querySelector(".fifth-line button")
-clear.addEventListener("click", ()=>{
-    numData = [];
-    operatorData = [];
-    firstNum = undefined;
-    secondNum = undefined;
-    operator = undefined;
-    const displayCalc = document.querySelector(".result");
-    displayCalc.textContent = "0";  // Reset to "0" or an empty string
-})
-
 function add(a,b) {
     return a+b;
 }
@@ -46,6 +34,13 @@ function display() {
         button.addEventListener("click", () => {
              // Handle the "Clear" button separately
             if(button.textContent === "Clear") {
+                // Clears all array and variables used in the calculator at btn press "Clear"
+                numData = [];
+                operatorData = [];
+                firstNum = undefined;
+                secondNum = undefined;
+                operator = undefined;
+                displayVal.textContent = "0";  // Reset to "0" or an empty string
                 return; // Do nothing, as the clear button is already handled
             }
 
@@ -77,6 +72,7 @@ function display() {
 // Performs the calculation using the add(), subtract(), multiply() and divide()
 function operate(firstNum,secondNum,operator) {
 
+
     //Checks which operator the user has selected and calls the corresponding function
     if(operator === "+") {
         add(firstNum,secondNum)
@@ -89,4 +85,3 @@ function operate(firstNum,secondNum,operator) {
     }
 }
 display();
-
