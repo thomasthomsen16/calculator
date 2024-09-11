@@ -1,0 +1,64 @@
+/* Body styles */
+body {
+    font-family: "Helvetica", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0; /* Optional: Light background color */
+}
+
+/* Calculator container */
+.calculator {
+    width: 320px; /* Fixed width for the calculator */
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    align-items: stretch; /* Ensure children take up full width */
+}
+
+/* 4x4 grid styling */
+.first-line,
+.second-line,
+.third-line,
+.fourth-line {
+    display: flex;
+}
+
+.first-line button,
+.second-line button,
+.third-line button,
+.fourth-line button {
+    flex: 1; /* Make buttons grow to fill the space */
+    height: 60px; /* Fixed height for buttons */
+    margin: 2px; /* Small margin to create space between buttons */
+    font-size: 20px; /* Font size for button text */
+    border: 1px solid #000; /* Border for buttons */
+    box-sizing: border-box; /* Ensure padding/border don't affect button size */
+}
+
+/* Clear button styling */
+.fifth-line {
+    display: flex;
+    justify-content: center; /* Center the clear button */
+}
+
+.fifth-line button {
+    flex: 1; /* Take full width of the calculator */
+    height: 60px; /* Match the height of the grid buttons */
+    margin: 2px; /* Margin to match button spacing in grid */
+    font-size: 20px; /* Font size for button text */
+    border: 1px solid #000; /* Border for button */
+    box-sizing: border-box; /* Ensure padding/border don't affect button size */
+}
+
+/* Result display styling */
+.result {
+    height: 60px; /* Fixed height for the result display */
+    border: 1px solid #000; /* Border for display area */
+    text-align: right; /* Align text to the right */
+    padding: 10px; /* Padding for text inside the display */
+    font-size: 24px; /* Font size for display text */
+    box-sizing: border-box; /* Ensure padding/border don't affect display size */
+    margin-top: 2px; /* Margin to separate from the clear button */
+}
