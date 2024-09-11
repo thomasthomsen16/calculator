@@ -54,11 +54,14 @@ body {
 
 /* Result display styling */
 .result {
+
     height: 60px; /* Fixed height for the result display */
+    margin: 2px; /* Margin to match button spacing in grid */
     border: 1px solid #000; /* Border for display area */
     text-align: right; /* Align text to the right */
     padding: 10px; /* Padding for text inside the display */
     font-size: 24px; /* Font size for display text */
     box-sizing: border-box; /* Ensure padding/border don't affect display size */
     margin-top: 2px; /* Margin to separate from the clear button */
+    background-color: #d6d6d6;
 }
